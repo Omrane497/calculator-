@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .calculator{
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 80px solid;
+                border-radius: 8px;
+            }
+            .calculator input{
+                width: 100%;
+                font-size: 18px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button{
+                padding: 20px; 
+                margin: 5px;
+                
+            }
+            button:hover{
+
+                background-color: rgb(179, 179, 179);
+                cursor: pointer;
+                border-radius: 10px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" id="display" disabled>
+            <button onclick="cleardDisplay()">C</button>
+            <button onclick="appendSymbol('/');">/</button>
+            <button onclick="appendSymbol('');"></button>
+            <button onclick="appendSymbol('7');">7</button>
+            <button onclick="appendSymbol('8');">8</button>
+            <button onclick="appendSymbol('9');">9</button>
+            <button onclick="appendSymbol('-');">-</button>
+            <button onclick="appendSymbol('4');">4</button>
+            <button onclick="appendSymbol('5');">5</button>
+            <button onclick="appendSymbol('6');">6</button>
+            <button onclick="appendSymbol('+');">+</button>
+            <button onclick="appendSymbol('1');">1</button>
+            <button onclick="appendSymbol('2');">2</button>
+            <button onclick="appendSymbol('3');">3</button>
+            <button onclick="calculateResult();">=</button>
+            <button onclick="appendSymbol('0');">0</button>
+            <button onclick="appendSymbol('.');">.</button>
+        </div>
+        <script>
+            const display = document.getElementById("display");
+
+            function appendSymbol(symbol) {
+                display.value += symbol;
+            }
+            function cleardDisplay(){
+                display.value = '';
+            }
+            function calculateResult() {
+                try{
+                    display.value = eval(display.value);
+                } catch (error) {
+                    display.value = 'Error'
+                }
+            }
+        </script>
+    </body>
+</html>
